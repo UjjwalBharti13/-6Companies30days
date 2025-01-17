@@ -15,6 +15,6 @@ public:
                 *lb = arr[i];
         }
         
-        return dp.size()-1;
+        return dp.size();
     }
 };
