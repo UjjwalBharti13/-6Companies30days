@@ -1,0 +1,50 @@
+class DataStream {
+public:
+// Approach
+/*
+     for solving this we have to make Queue
+        
+            first wer have to push in Queu all element with there freq
+            if Q.size() is greater than k then we have to decrese map frequnecy
+               
+               if it is equal then return true;
+
+  */
+     map<int,int> mp;
+     queue<int> q;
+     int val ,temp;
+    DataStream(int value, int k) {
+          val =k;
+          temp = value;
+    }
+    
+    bool consec(int num) {
+           q.push(num);
+            mp[num]++;
+              
+              if(q.size()>=val){
+                 if(q.size()>val){
+                     mp[q.front()]--;
+                      
+                      if(mp[q.front()]==0){
+                         mp.erase(q.front());
+                      }
+                         q.pop();
+                 }
+              
+              if(mp.size()==1 and mp[temp]>0){
+                return true;
+              }
+                else return false;
+
+              }
+              else return false;
+    }
+        
+};
+
+/**
+ * Your DataStream object will be instantiated and called as such:
+ * DataStream* obj = new DataStream(value, k);
+ * bool param_1 = obj->consec(num);
+ */
